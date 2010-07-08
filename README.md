@@ -7,9 +7,50 @@
 
 ## Usage ##
 
-To be added soon.
+Simply add the gem,file in your `config/settings.yml`
+and use on the Settings object. Note that you can use:
+
+* `Setting.name` - base
+* `Setting.name.other` - nested
+* `Setting.name.other?` - check for a key
 
 ## Configuration ##
+
+Simply put a yaml file in `config/settings.yml`. As an example:
+
+    ---
+    default:
+      some_key: 1
+      nested: true
+    production:
+      google_analytics:
+        identifier: "UA-XXXXXXXX-X"
+      mailer:
+        contact_email: "team@site.com"
+        from: "noreply@site.com"
+        host: "site.com"
+        delivery_method: smtp
+        smtp_settings:
+          address: smtp.gmail.com
+          port: 587
+          authentication: plain
+          enable_starttls_auto: true
+          domain: site.com 
+          user_name: user@site.com
+          password: yourpassword
+    development:
+      mailer:
+        contact_email: "test@site.dev"
+        from: "test@site.dev"
+        host: "localhost:3000"
+        delivery_method: sendmail
+    test:
+      mailer:
+        contact_email: "example@example.com"
+        from: "example@example.com"
+        host: "example.com"
+        delivery_method: test
+
 
 ## Note on Patches/Pull Requests ##
  
