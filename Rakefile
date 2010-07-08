@@ -1,7 +1,9 @@
 require 'rubygems'
 require 'rake'
 
-require File.expand_path('lib/youthtree-settings', File.dirname(__FILE__))
+require 'active_support'
+require 'active_support/core_ext'
+require File.expand_path('lib/youth_tree/settings', File.dirname(__FILE__))
 
 begin
   require 'jeweler'
@@ -13,6 +15,7 @@ begin
     gem.homepage    = "http://github.com/YouthTree/youthtree-settings"
     gem.authors     = ["Darcy Laycock"]
     gem.version     = YouthTree::Settings::VERSION
+    gem.add_dependency "activesupport", ">= 3.0.0.beta4"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

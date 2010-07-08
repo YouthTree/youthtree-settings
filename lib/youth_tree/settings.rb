@@ -3,6 +3,8 @@ require 'yaml'
 module YouthTree
   class Settings
 
+    VERSION = "0.1.0".freeze
+
     cattr_reader :settings_path
     def self.settings_path
       @@settings_path ||= Rails.root.join("config", "settings.yml")
