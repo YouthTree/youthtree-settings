@@ -3,7 +3,7 @@ require 'yaml'
 module YouthTree
   class Settings
 
-    VERSION = "0.1.0".freeze
+    VERSION = "0.1.1".freeze
 
     cattr_reader :settings_path
     def self.settings_path
@@ -30,6 +30,10 @@ module YouthTree
     def has?(key)
       key = key.to_sym
       @hash.has_key?(key) && @hash[key].present?
+    end
+
+    def fetch(key, default = nil)
+      has?(key) : self[key] : default
     end
 
     def blank?
