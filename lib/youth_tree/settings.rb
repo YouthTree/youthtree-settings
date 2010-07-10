@@ -33,7 +33,7 @@ module YouthTree
     end
 
     def fetch(key, default = nil)
-      has?(key) : self[key] : default
+      has?(key) ? self[key] : default
     end
 
     def blank?
