@@ -3,7 +3,7 @@ require 'yaml'
 module YouthTree
   class Settings
 
-    VERSION = "0.1.1".freeze
+    VERSION = "0.1.2".freeze
 
     cattr_reader :settings_path
     def self.settings_path
