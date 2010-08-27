@@ -3,7 +3,7 @@ require 'yaml'
 module YouthTree
   class Settings
 
-    VERSION = "0.1.2".freeze
+    VERSION = "0.1.3".freeze
 
     cattr_reader :settings_path
     def self.settings_path
@@ -103,7 +103,7 @@ module YouthTree
         
         # Setup sendgrid if present, sort of a faux-sendgrid helper.
         if s.delivery_method.to_sym == :sendgrid
-          ActionMailer::Base.delivery_method = :smttp
+          ActionMailer::Base.delivery_method = :smtp
           ActionMailer::Base.smtp_settings   = {
             :address        => "smtp.sendgrid.net",
             :port           => "25",
