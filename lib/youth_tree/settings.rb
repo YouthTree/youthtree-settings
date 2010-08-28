@@ -3,7 +3,7 @@ require 'yaml'
 module YouthTree
   class Settings
 
-    VERSION = "0.1.3".freeze
+    VERSION = "0.1.4".freeze
 
     cattr_reader :settings_path
     def self.settings_path
@@ -135,7 +135,7 @@ module YouthTree
       when self.class
         value.to_hash
       when Hash
-        returning({}) do |h|
+        Hash.new.tap do |h|
           value.each_pair { |k,v| h[k] = unpack_attr(v) }
         end
       when Array
