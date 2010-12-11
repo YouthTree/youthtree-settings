@@ -5,29 +5,27 @@
 
 Gem::Specification.new do |s|
   s.name = %q{youthtree-settings}
-  s.version = "0.1.4"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Darcy Laycock"]
-  s.date = %q{2010-08-28}
+  s.date = %q{2010-12-11}
   s.description = %q{Lets you use config/settings.yml in a rails application to manage settings on a per-env basis.}
   s.email = %q{sutto@sutto.net}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.md"
+    "README.md"
   ]
   s.files = [
     ".document",
-     ".gitignore",
-     "LICENSE",
-     "README.md",
-     "Rakefile",
-     "lib/youth_tree/settings.rb",
-     "lib/youthtree-settings.rb",
-     "youthtree-settings.gemspec"
+    "LICENSE",
+    "README.md",
+    "Rakefile",
+    "lib/youth_tree/settings.rb",
+    "lib/youthtree-settings.rb",
+    "youthtree-settings.gemspec"
   ]
   s.homepage = %q{http://github.com/YouthTree/youthtree-settings}
-  s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Simple Settings for Rails Applications}
