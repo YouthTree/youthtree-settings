@@ -4,7 +4,7 @@ require 'erb'
 module YouthTree
   class Settings
 
-    VERSION = "0.2.0".freeze
+    VERSION = "0.2.1".freeze
 
     cattr_reader :settings_path
     def self.settings_path
@@ -103,7 +103,7 @@ module YouthTree
         ActionMailer::Base.smtp_settings              = s.smtp_settings.to_hash     if s.smtp_settings?
         ActionMailer::Base.sendmail_settings          = s.sendmail_settings.to_hash if s.sendmail_settings?
         ActionMailer::Base.default              :from => s.from
-        
+
         # Setup sendgrid if present, sort of a faux-sendgrid helper.
         if s.delivery_method.to_sym == :sendgrid
           ActionMailer::Base.delivery_method = :smtp
