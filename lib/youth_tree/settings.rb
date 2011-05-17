@@ -4,7 +4,7 @@ require 'erb'
 module YouthTree
   class Settings
 
-    VERSION = "0.2.1".freeze
+    VERSION = "0.3.0".freeze
 
     cattr_reader :settings_path
     def self.settings_path
@@ -76,6 +76,13 @@ module YouthTree
           groups = [load_from_file]
           self.new(groups.inject({}) { |a,v| a.deep_merge(v) })
         end
+      end
+
+      def reset!
+        @@__default = nil
+        default # Force us to reload the settings
+        YouthTree::Settings.setup_mailer!
+        true
       end
 
       def method_missing(name, *args, &blk)
@@ -152,9 +159,7 @@ module YouthTree
 
   if defined?(Rails::Railtie)
     class Railtie < Rails::Railtie
-      initializer "youthtree.settings" do
-        YouthTree::Settings.setup_mailer!
-      end
+      config.to_prepare { YouthTree::Settings.reset! }
     end
   end
 

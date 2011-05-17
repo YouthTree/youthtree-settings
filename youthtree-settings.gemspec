@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{youthtree-settings}
-  s.version = "0.2.1"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Darcy Laycock"]
-  s.date = %q{2011-03-31}
+  s.date = %q{2011-05-17}
   s.description = %q{Lets you use config/settings.yml in a rails application to manage settings on a per-env basis.}
   s.email = %q{sutto@sutto.net}
   s.extra_rdoc_files = [
