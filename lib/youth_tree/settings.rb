@@ -4,12 +4,7 @@ require 'erb'
 module YouthTree
   class Settings
 
-    VERSION = "0.3.0".freeze
-
-    cattr_reader :settings_path
-    def self.settings_path
-      @@settings_path ||= Rails.root.join("config", "settings.yml")
-    end
+    VERSION = "1.0.0".freeze
 
     def initialize(hash = {})
       @hash = Hash.new { |h,k| h[k] = self.class.new }
@@ -64,24 +59,36 @@ module YouthTree
 
     class << self
 
+      def setup(value = nil, &blk)
+        @@setup_callback = (blk || value)
+      end
+
+      def settings_path
+        @@settings_path ||= Rails.root.join("config", "settings.yml").to_s
+      end
+
       def load_from_file
-        contents = File.read(self.settings_path)
+        if !File.readable?(settings_path)
+          $stderr.puts "Unable to load settings from #{settings_path} - Please check it exists and is readable."
+          return {}
+        end
+        # Otherwise, try loading...
+        contents = File.read(settings_path)
         contents = ERB.new(contents).result
         contents = YAML.load(contents)
         (contents["default"] || {}).deep_merge(contents[Rails.env] || {})
       end
 
       def default
-        @@__default ||= begin
-          groups = [load_from_file]
-          self.new(groups.inject({}) { |a,v| a.deep_merge(v) })
-        end
+        @@default ||= new(load_from_file)
       end
 
       def reset!
-        @@__default = nil
+        @@default = nil
         default # Force us to reload the settings
         YouthTree::Settings.setup_mailer!
+        # If a setup block is defined, call it post configuration.
+        @setup_callback.call if defined?(@setup_callback) && @setup_callback
         true
       end
 
