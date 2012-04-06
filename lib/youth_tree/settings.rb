@@ -4,7 +4,7 @@ require 'erb'
 module YouthTree
   class Settings
 
-    VERSION = "1.0.0".freeze
+    VERSION = "1.0.1".freeze
 
     def initialize(hash = {})
       @hash = Hash.new { |h,k| h[k] = self.class.new }

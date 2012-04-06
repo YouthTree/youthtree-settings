@@ -15,6 +15,6 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
   s.version       = YouthTree::Settings::VERSION.dup
-  s.add_dependency "activesupport", "~> 3.0.1"
+  s.add_dependency "activesupport", "~> 3.0"
 
 end
