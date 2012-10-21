@@ -2,21 +2,21 @@
 
 ## Installation ##
 
-1. Add "gem 'youthtree-settings' to your Gemfile"
+1. Add "gem 'youthtree-settings'" to your Gemfile
 2. Run bundle install
 
 ## Usage ##
 
-Simply add the gem,file in your `config/settings.yml`
-and use on the Settings object. Note that you can use:
+Simply add a configuration file to `config/settings.yml`
+and use the `Settings` object. Note that you can use:
 
-* `Setting.name` - base
-* `Setting.name.other` - nested
-* `Setting.name.other?` - check for a key
+* `Settings.name` - base
+* `Settings.name.other` - nested
+* `Settings.name.other?` - check for a key
 
 ## Configuration ##
 
-Simply put a yaml file in `config/settings.yml`. As an example:
+Simply put a Yaml file in `config/settings.yml`. As an example:
 
     ---
     default:
