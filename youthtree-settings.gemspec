@@ -3,7 +3,6 @@
 require File.expand_path('lib/youth_tree/settings', File.dirname(__FILE__))
 
 Gem::Specification.new do |s|
-
   s.name          = "youthtree-settings"
   s.summary       = "Simple Settings for Rails Applications"
   s.description   = %Q{Lets you use config/settings.yml in a rails application to manage settings on a per-env basis.}
